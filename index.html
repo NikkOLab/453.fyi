@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive syllabus for Computer Networks" />
+  <title>CS453 Computer Networks · Interactive Syllabus</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#syllabus">Skip to syllabus content</a>
+
+  <header class="hero" id="top">
+    <nav class="topbar" aria-label="Primary navigation">
+      <a class="brand" href="#top">CS 453 · Computer Networks</a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#grading">Grading</a>
+        <a href="#policies">Policies</a>
+      </div>
+    </nav>
+
+    <div class="hero-copy">
+      <p class="eyebrow">Fall 2026 · Tuesdays & Thursdays · 11:30 AM–12:45 PM</p>
+      <h1><span>Welcome to</span><span>CS453</span><span>Computer Networks!</span></h1>
+      <p class="lede">This is where it all begins! Your syllabus (as a packet) is waiting below. Scroll to build it, send it across a small network, and receive it at the destination.</p>
+      <a class="button" href="#syllabus">Begin transmission ↓</a>
+    </div>
+  </header>
+
+  <main id="syllabus">
+    <section class="protocol-stage" aria-label="Packet encapsulation visualization">
+      <div class="packet-panel">
+        <div class="layer-label" id="layerLabel">Application Data</div>
+        <div class="packet" id="packet" aria-live="polite">
+          <div class="header ethernet">Ethernet Header</div>
+          <div class="header ip">IP Header</div>
+          <div class="header tcp">TCP Header</div>
+          <div class="payload">
+            <strong>SYLLABUS</strong>
+            <span>Course information payload</span>
+          </div>
+          <div class="trailer">Ethernet Footer</div>
+        </div>
+        <div class="transmission" id="transmission" aria-hidden="true">
+          <div class="endpoint source-endpoint">
+            <div class="computer-screen"><span>S</span></div>
+            <div class="computer-base"></div>
+            <small>Source</small>
+          </div>
+          <div class="medium">
+            <div class="signal-bits">10110010 · 01101101 · 11001010</div>
+            <div class="wire"></div>
+            <div class="router router-one" aria-label="Router 1">
+              <div class="router-body"><i></i><i></i><i></i></div>
+              <small>Router 1</small>
+            </div>
+            <div class="router router-two" aria-label="Router 2">
+              <div class="router-body"><i></i><i></i><i></i></div>
+              <small>Router 2</small>
+            </div>
+            <div class="mini-packet" id="miniPacket">
+              <i></i><i></i><i></i><i></i>
+            </div>
+          </div>
+          <div class="endpoint destination-endpoint">
+            <div class="computer-screen"><span>D</span></div>
+            <div class="computer-base"></div>
+            <small>Destination</small>
+          </div>
+        </div>
+        <p class="packet-note" id="packetNote">Your application data is ready.</p>
+      </div>
+    </section>
+
+    <div class="content-column">
+      <section class="syllabus-section" id="overview" data-layer="application">
+        <p class="section-kicker">Application Layer</p>
+        <h2>Course overview</h2>
+        <p>This course provides an introduction to fundamental concepts in the design and implementation of computer networks, their protocols, and applications. Topics to be covered include: overview of network architectures, applications, network programming interfaces (e.g., sockets), transport, congestion, the network data plane (packet forwarding, addressing) and control plane (routing algorithms, software defined networks, network management), link-layer protocols, local area networks and data center networks, wireless networks, and a bit of network security. Examples will be drawn primarily from the Internet (e.g., TCP, UDP, and IP) protocol suite. There will be five or six written assignments, a couple of programming assignments, several short hands-on labs (that can be done on any Internet-connected PC). We'll have two exams and an optional final.</p>
+
+        <div class="info-grid">
+          <article>
+            <h3>Instructor</h3>
+            <p>Prof. Nikko Bov<br />Email: TBA<br />Office hours: TBA</p>
+          </article>
+          <article>
+            <h3>Class meetings</h3>
+            <p>Tuesdays &amp; Thursdays<br />11:30 AM–12:45 PM<br />Morrill Science Center I, Room N326</p>
+          </article>
+          <article>
+            <h3>Teaching Assistants</h3>
+            <p>TBA</p>
+          </article>
+          <article>
+            <h3>Undergraduate Course Assistants</h3>
+            <p>TBA</p>
+          </article>
+        </div>
+
+        <h3>Prerequisites</h3>
+        <p>A rudimentary understanding of algorithms (e.g., CMPSCI 311) and operating systems (CMPSCI 377) is required, or you should be willing to pick up elements from those courses as needed. A previous course in computer organization (e.g., CMPSCI 201) is required. You must be able to program in a structured high-level programming language, such as Python.</p>
+
+        <h3>Materials</h3>
+        <div class="materials-grid">
+          <article>
+            <p class="material-icon" aria-hidden="true">📘</p>
+            <h4>Textbook</h4>
+            <p><strong>Computer Networking: A Top-Down Approach, 9th Edition</strong><br />J. F. Kurose &amp; K. W. Ross<br />Pearson, 2025</p>
+            <p>You can get by OK with a copy of the 8th edition, although I strongly recommend the 9th edition because it includes substantial new and updated material.</p>
+          </article>
+          <article>
+            <p class="material-icon" aria-hidden="true">🎥</p>
+            <h4>Recorded lectures</h4>
+            <p>This course will be taught in person and recorded. You can watch the recordings using Echo360.</p>
+            <p>Pre-recorded lectures by Prof. Jim Kurose are available on YouTube. Additional pre-recorded lecture materials are available on the <a href="http://gaia.cs.umass.edu/kurose_ross/online_lectures.htm">textbook companion site</a>.</p>
+          </article>
+          <article>
+            <p class="material-icon" aria-hidden="true">🖥️</p>
+            <h4>PowerPoint slides</h4>
+            <p>The PowerPoint slides used for this class will be posted on Canvas. I will do my best to release the slides before each lecture.</p>
+          </article>
+        </div>
+
+      </section>
+
+      <section class="syllabus-section" id="communication" data-layer="transport">
+        <p class="section-kicker">Transport Layer</p>
+        <h2>Communication and course flow</h2>
+        <p>The transport layer is where we negotiate reliability. In this course, reliable communication also matters between humans.</p>
+
+        <div class="protocol-card">
+          <div><span>Channel</span><strong>Piazza</strong></div>
+          <div><span>Expected ACK</span><strong>Within 1 business day</strong></div>
+          <div><span>Urgent flag</span><strong>Email with “CS453” in subject</strong></div>
+          <div><span>Retransmission</span><strong>Follow up after 24 hours</strong></div>
+        </div>
+
+        <p>Use Piazza for questions that may help the class. Use email for private matters. Please include enough context for us to reconstruct the packet.</p>
+      </section>
+
+      <section class="syllabus-section" id="schedule" data-layer="network">
+        <p class="section-kicker">Network Layer</p>
+        <h2>Route through the semester</h2>
+        <div class="week-list" aria-label="Fall 2026 course schedule">
+          <details class="week-card">
+            <summary><span>Week 1</span><small>Sep 8 &amp; 10 · Course foundations</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-09-08">Tue 9/8</time><strong>Lecture 1</strong> Course goals and overview. Course mechanics. What is the Internet? What is a protocol?</p>
+              <p><time datetime="2026-09-10">Thu 9/10</time><strong>Lecture 2</strong> The network edge, the network core, and performance: delay, loss, and throughput.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 2</span><small>Sep 15 &amp; 17 · Layering and HTTP</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-09-15">Tue 9/15</time><strong>Lecture 3</strong> Performance continued; layering; encapsulation; networks under attack; history.</p>
+              <p><time datetime="2026-09-17">Thu 9/17</time><strong>Lecture 4</strong> Principles of networked applications; the Web and HTTP.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 3</span><small>Sep 22 &amp; 24 · HTTP, DNS, and CDNs</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-09-22">Tue 9/22</time><strong>Lecture 5</strong> HTTP continued; e-mail; DNS.</p>
+              <p><time datetime="2026-09-24">Thu 9/24</time><strong>Lecture 6</strong> DNS, video streaming, and content distribution networks.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 4</span><small>Sep 29 &amp; Oct 1 · Sockets and UDP</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-09-29">Tue 9/29</time><strong>Lecture 7</strong> Socket programming.</p>
+              <p><time datetime="2026-10-01">Thu 10/1</time><strong>Lecture 8</strong> Introduction to the transport layer; multiplexing and demultiplexing; UDP.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 5</span><small>Oct 6 &amp; 8 · Reliable transport and TCP</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-10-06">Tue 10/6</time><strong>Lecture 9</strong> Principles of reliable data transfer.</p>
+              <p><time datetime="2026-10-08">Thu 10/8</time><strong>Lecture 10</strong> Pipelined protocols; TCP connection management and reliable data transfer.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 6</span><small>Oct 13 &amp; 15 · Congestion and network layer</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-10-13">Tue 10/13</time><strong>Lecture 11</strong> Principles of congestion control; TCP congestion control.</p>
+              <p><time datetime="2026-10-15">Thu 10/15</time><strong>Lecture 12</strong> Congestion-control futures; introduction to the network layer: forwarding, routing, data plane, and control plane.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 7</span><small>Oct 20 &amp; 22 · Routers and Exam I</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-10-20">Tue 10/20</time><strong>Lecture 13</strong> What is inside a router?</p>
+              <p class="special exam"><time datetime="2026-10-22">Thu 10/22</time><strong>In-class Exam I</strong></p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 8</span><small>Oct 27 &amp; 29 · IP, SDN, and middleboxes</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-10-27">Tue 10/27</time><strong>Lecture 14</strong> The Internet Protocol: IPv4 and IPv6.</p>
+              <p><time datetime="2026-10-29">Thu 10/29</time><strong>Lecture 15</strong> Generalized forwarding and SDN; middleboxes.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 9</span><small>Nov 3 &amp; 5 · Election Day and routing algorithms</small></summary>
+            <div class="week-body">
+              <p class="special no-class"><time datetime="2026-11-03">Tue 11/3</time><strong>Election Day · No class</strong></p>
+              <p><time datetime="2026-11-05">Thu 11/5</time><strong>Lecture 16</strong> Link-state and distance-vector routing algorithms.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 10</span><small>Nov 10 &amp; 12 · Routing protocols and link layer</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-11-10">Tue 11/10</time><strong>Lecture 17</strong> Routing protocols: OSPF and BGP.</p>
+              <p><time datetime="2026-11-12">Thu 11/12</time><strong>Lecture 18</strong> Introduction to the link layer; error detection and correction; multiple-access protocols.</p>
+              <p class="calendar-note"><time datetime="2026-11-11">Wed 11/11</time><strong>Veterans Day holiday</strong></p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 11</span><small>Nov 17 &amp; 19 · TBA and switched LANs</small></summary>
+            <div class="week-body">
+              <p class="special tba"><time datetime="2026-11-17">Tue 11/17</time><strong>Topic TBA</strong></p>
+              <p><time datetime="2026-11-19">Thu 11/19</time><strong>Lecture 19</strong> Cable networks (DOCSIS); switched LANs.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 12</span><small>Nov 24 · Wednesday schedule and Thanksgiving break</small></summary>
+            <div class="week-body">
+              <p class="special no-class"><time datetime="2026-11-24">Tue 11/24</time><strong>Wednesday schedule · No CS453 class</strong></p>
+              <p class="calendar-note"><strong>Thanksgiving break</strong></p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 13</span><small>Dec 1 &amp; 3 · Data centers and wireless</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-12-01">Tue 12/1</time><strong>Lecture 20</strong> Data-center networking; retrospective: a day in the life of a web-page request.</p>
+              <p><time datetime="2026-12-03">Thu 12/3</time><strong>Lecture 21</strong> The wireless channel; Wi-Fi and Bluetooth.</p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 14</span><small>Dec 8 &amp; 10 · 4G/5G and Exam II</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-12-08">Tue 12/8</time><strong>Lecture 22</strong> 4G/5G networks.</p>
+              <p class="special exam"><time datetime="2026-12-10">Thu 12/10</time><strong>In-class Exam II</strong></p>
+            </div>
+          </details>
+          <details class="week-card">
+            <summary><span>Week 15</span><small>Dec 15 · Mobility and course wrap-up</small></summary>
+            <div class="week-body">
+              <p><time datetime="2026-12-15">Tue 12/15</time><strong>Lecture 23</strong> Mobility-management principles; mobility in 4G/5G; networking futures; final class and course wrap-up.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="syllabus-section" id="grading" data-layer="link">
+        <p class="section-kicker">Link Layer</p>
+        <h2>Grading frame</h2>
+        <p>Each component contributes a field to the final frame. No single packet determines the whole transmission.</p>
+        <div class="grade-grid">
+          <article><span>20%</span><h3>Written homework</h3><p>Five or six weekly, open-book assignments completed through Moodle.</p></article>
+          <article><span>15%</span><h3>Wireshark labs</h3><p>Near-weekly packet-analysis labs completed on your own laptop and submitted through Moodle.</p></article>
+          <article><span>15%</span><h3>Programming assignments</h3><p>Two assignments in a high-level language such as Python, Java, or C, submitted through Gradescope.</p></article>
+          <article><span>15%</span><h3>Midterm Exam I</h3><p>Covers approximately the first half of the course. See the schedule for the exam date.</p></article>
+          <article><span>15%</span><h3>Midterm Exam II</h3><p>Covers only the second half of the course and is held near the end of the semester.</p></article>
+          <article><span>20%</span><h3>Optional final exam</h3><p>You may keep your provisional grade or take the final. The final can only improve your course grade.</p></article>
+        </div>
+        <p class="final-note"><strong>How the optional final works:</strong> After the other coursework is complete, you will receive a provisional grade based on the components above excluding the final. You may accept that grade or take the final exam, which is weighted at 20% relative to the other components. Your final course grade will be the higher of the two calculations.</p>
+      </section>
+
+      <section class="syllabus-section" id="policies" data-layer="physical">
+        <p class="section-kicker">Physical Layer</p>
+        <h2>Policies carried in the signal</h2>
+        <div class="policy-list">
+          <details open><summary>Late work</summary><p>Each student receives three 24-hour late tokens. After tokens are used, contact the instructor before the deadline whenever possible.</p></details>
+          <details><summary>Collaboration</summary><p>Discussion is encouraged, but submitted work must clearly reflect your own understanding. Cite collaborators and external resources.</p></details>
+          <details><summary>Accessibility</summary><p>Please contact Disability Services and the instructor early so that accommodations can be implemented smoothly.</p></details>
+          <details><summary>Well-being</summary><p>Life occasionally drops packets. Reach out early if circumstances affect your work so we can identify a reasonable path forward.</p></details>
+          <details><summary>Changes to the syllabus</summary><p>The schedule may evolve. Important changes will be announced in class and posted on Canvas.</p></details>
+        </div>
+      </section>
+
+      <section class="arrival" data-layer="arrival">
+        <p class="section-kicker">Destination reached</p>
+        <h2>200 OK: Syllabus received</h2>
+        <p>You have reached the end of the transmission. Bookmark this page, and use the navigation above to jump directly to any section later.</p>
+        <a class="button secondary" href="#top">Return to source ↑</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Computer Networks · Fall 2026 · Last updated July 2026</p>
+    <button id="printButton" type="button">Print / Save as PDF</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
