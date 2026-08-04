@@ -5,6 +5,7 @@
   --panel: #ffffff;
   --accent: #ff6b35;
   --accent-2: #0a7b83;
+  --hero-accent: #8EDCFF;
   --line: #dbe2e7;
   --shadow: 0 24px 70px rgba(16, 32, 47, 0.12);
 }
@@ -36,7 +37,7 @@ a { color: inherit; }
   display: grid;
   grid-template-rows: auto 1fr;
   background:
-    radial-gradient(circle at 15% 20%, rgba(255,107,53,.25), transparent 25%),
+    radial-gradient(circle at 15% 20%, rgba(142,220,255,.18), transparent 27%),
     radial-gradient(circle at 85% 30%, rgba(10,123,131,.28), transparent 30%),
     #10202f;
   color: white;
@@ -1393,4 +1394,53 @@ footer button:focus-visible { transform: translateY(-1px); }
 }
 @media print {
   .footer-actions { display: none !important; }
+}
+
+
+/* v31 pastel hero accent */
+.hero h1 span:nth-child(2) {
+  color: var(--hero-accent);
+  text-shadow: 0 0 24px rgba(142, 220, 255, .16);
+}
+.hero .button {
+  color: var(--hero-accent);
+  background: rgba(255,255,255,.065);
+  border: 1px solid rgba(142,220,255,.72);
+  box-shadow: 0 0 18px rgba(142,220,255,.12), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease, color .25s ease;
+}
+.hero .button:hover,
+.hero .button:focus-visible {
+  color: #B5EAFF;
+  background: rgba(142,220,255,.11);
+  border-color: #B5EAFF;
+  box-shadow: 0 0 24px rgba(142,220,255,.22), inset 0 1px 0 rgba(255,255,255,.12);
+  transform: translateY(-2px);
+}
+
+
+/* v32: reveal the technical note in the sticky packet panel only at the destination */
+.packet-accuracy-note {
+  max-width: 28rem;
+  margin: .85rem auto 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: .76rem;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(5px);
+  pointer-events: none;
+  transition: opacity .45s ease, transform .45s ease;
+}
+.packet-panel.arrived .packet-accuracy-note {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 4.25s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .packet-panel.arrived .packet-accuracy-note {
+    transition-delay: 0s;
+  }
 }
