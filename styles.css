@@ -64,6 +64,10 @@ a { color: inherit; }
   font-size: .78rem;
   font-weight: 800;
 }
+.section-kicker {
+  color: #8b949d;
+  opacity: .78;
+}
 .hero h1 {
   margin: .25rem 0 1rem;
   font-size: clamp(2.8rem, 7.2vw, 6.4rem);
