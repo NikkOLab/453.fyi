@@ -1,104 +1,36 @@
 <!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Interactive syllabus for Computer Networks" name="description"/>
-<title>CS 453 Computer Networks · Interactive Syllabus</title>
-<link href="styles.css" rel="stylesheet"/>
-</head>
-<body>
-<a class="skip-link" href="#syllabus">Skip to syllabus content</a>
-<header class="hero" id="top">
-<nav aria-label="Primary navigation" class="topbar">
-<a class="brand" href="#top">CS 453 · Computer Networks</a>
-<div class="nav-links">
-<a href="#overview">Overview</a>
-<a href="#schedule">Schedule</a>
-<a href="#grading">Grading</a>
-<a href="#policies">Policies</a>
-</div>
-</nav>
-<div aria-hidden="true" class="hero-network">
-<svg preserveaspectratio="xMidYMid slice" viewbox="0 0 1200 720">
-<g class="hero-links">
-<path d="M90 165 C280 70 390 220 565 140 S870 55 1110 180"></path>
-<path d="M70 510 C280 620 425 420 600 520 S910 650 1140 500"></path>
-<path d="M210 90 C310 260 250 410 390 610"></path>
-<path d="M930 70 C825 240 930 410 790 625"></path>
-<path d="M565 140 C520 280 665 360 600 520"></path>
-</g>
-<g class="hero-nodes">
-<circle cx="90" cy="165" r="8"></circle><circle cx="210" cy="90" r="6"></circle>
-<circle cx="565" cy="140" r="9"></circle><circle cx="930" cy="70" r="6"></circle>
-<circle cx="1110" cy="180" r="8"></circle><circle cx="70" cy="510" r="7"></circle>
-<circle cx="390" cy="610" r="8"></circle><circle cx="600" cy="520" r="10"></circle>
-<circle cx="790" cy="625" r="7"></circle><circle cx="1140" cy="500" r="8"></circle>
-</g>
-</svg>
-</div>
-<button aria-label="Animate the decorative spider" class="hero-spider" type="button">
-<span aria-hidden="true" class="spider-rig">
-<span class="spider-thread"></span>
-<span class="spider-swing"><img alt="" src="spider-welcome.png"/></span>
-</span>
-</button>
-<div class="hero-copy">
-<p class="eyebrow">Fall 2026 · Tuesdays &amp; Thursdays · 11:30 AM–12:45 PM</p>
-<h1><span>Welcome to</span><span>CS 453</span><span>Computer Networks!</span></h1>
-<p class="lede">This is where it all begins! Your syllabus (as a packet) is waiting below. Scroll to watch it being built, then travel across a small network from the source to the destination.</p>
-<a class="button" href="#syllabus">Let's Begin ↓</a>
-</div>
-<div aria-hidden="true" class="scroll-cue"><span></span><small>Scroll to transmit</small></div>
-</header>
-<main id="syllabus">
-<section aria-label="Packet encapsulation visualization" class="protocol-stage">
-<div class="packet-panel">
-<div class="layer-label" id="layerLabel">Application Data</div>
-<div aria-live="polite" class="packet" id="packet">
-<div class="header ethernet">Ethernet Header</div>
-<div class="header ip">IP Header</div>
-<div class="header tcp">TCP Header</div>
-<div class="payload">
-<strong>A TINY PIECE</strong>
-<span>of the CS 453 syllabus</span>
-</div>
-<div class="trailer">Ethernet Footer</div>
-</div>
-<div aria-hidden="true" class="transmission" id="transmission">
-<div class="endpoint source-endpoint">
-<div class="computer-screen"><span>S</span></div>
-<div class="computer-base"></div>
-<small>Source</small>
-</div>
-<div class="medium">
-<div class="signal-bits">10110010 · 01101101 · 11001010</div>
-<div class="wire"></div>
-<div aria-label="Router 1" class="router router-one">
-<div class="router-body"><i></i><i></i><i></i></div>
-<small>Router 1</small>
-</div>
-<div aria-label="Router 2" class="router router-two">
-<div class="router-body"><i></i><i></i><i></i></div>
-<small>Router 2</small>
-</div>
-<div class="mini-packet" id="miniPacket">
-<i></i><i></i><i></i><i></i>
-</div>
-</div>
-<div class="endpoint destination-endpoint">
-<div class="computer-screen"><span>D</span></div>
-<div class="computer-base"></div>
-<small>Destination</small>
-</div>
-</div>
-<p class="packet-note" id="packetNote">A tiny piece of the CS 453 syllabus is ready.</p>
-<p class="accuracy-note">For illustration purposes, this frame carries only a tiny piece of the CS 453 syllabus. The complete syllabus would be transmitted as many packets.</p>
-</div>
-</section>
-<div class="content-column">
-<section class="syllabus-section" data-layer="application" id="overview">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>CS 453 Computer Networks · Fall 2026 Syllabus</title><style>
+:root { color-scheme: light; --ink:#10202f; --muted:#5b6670; --line:#d9e0e5; --accent:#0a7b83; }
+* { box-sizing: border-box; }
+body { margin:0; color:var(--ink); background:#f6f5f0; font:16px/1.62 Georgia, "Times New Roman", serif; }
+main { width:min(900px, calc(100% - 2rem)); margin:2rem auto; background:#fff; padding:clamp(1.5rem,4vw,4rem); box-shadow:0 12px 40px rgba(16,32,47,.08); }
+header { border-bottom:3px solid var(--ink); padding-bottom:1.5rem; margin-bottom:2rem; }
+h1 { font:800 clamp(2.25rem,6vw,4.5rem)/.98 Arial, sans-serif; margin:0 0 .8rem; letter-spacing:-.04em; }
+.term { margin:0; color:var(--muted); font:700 1rem/1.4 Arial,sans-serif; text-transform:uppercase; letter-spacing:.08em; }
+h2 { margin:2.5rem 0 .75rem; padding-top:.75rem; border-top:1px solid var(--line); font:800 2rem/1.1 Arial,sans-serif; }
+h3 { margin:1.7rem 0 .45rem; font:800 1.25rem/1.2 Arial,sans-serif; }
+h4 { margin:1.1rem 0 .35rem; font:800 1.05rem/1.2 Arial,sans-serif; }
+p { margin:.55rem 0 1rem; }
+a { color:var(--accent); text-underline-offset:2px; }
+.section-kicker { margin:0 0 .35rem; color:var(--accent); font:800 .78rem/1 Arial,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+.info-grid,.materials-grid,.grade-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.info-grid article,.materials-grid article,.grade-grid article { border:1px solid var(--line); border-radius:.65rem; padding:1rem; break-inside:avoid; }
+.material-icon { display:none; }
+.protocol-card { border:1px solid var(--line); border-radius:.65rem; padding:.8rem 1rem; }
+.protocol-card div { display:flex; justify-content:space-between; gap:2rem; padding:.45rem 0; border-bottom:1px dotted var(--line); }
+.protocol-card div:last-child { border-bottom:0; }
+.week-card,.policy-list details { border:1px solid var(--line); border-radius:.5rem; margin:.65rem 0; padding:.75rem 1rem; break-inside:avoid; }
+.week-card summary,.policy-list summary { font:800 1rem/1.35 Arial,sans-serif; }
+.week-card summary small { display:block; color:var(--muted); margin-top:.15rem; }
+.week-body p { display:grid; grid-template-columns:7rem 7rem 1fr; gap:.65rem; padding:.45rem 0; margin:0; border-bottom:1px dotted var(--line); }
+.week-body p:last-child { border-bottom:0; }
+.week-body .special,.week-body .calendar-note { grid-template-columns:7rem 1fr; }
+.grade-grid article span { font:800 1.7rem/1 Arial,sans-serif; color:var(--accent); }
+.deadline-note,.final-note,.schedule-note { border-left:4px solid var(--accent); padding:.65rem .9rem; background:#f3f8f8; }
+footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font: .9rem Arial,sans-serif; }
+@media (max-width:700px) { .info-grid,.materials-grid,.grade-grid { grid-template-columns:1fr; } .week-body p { grid-template-columns:1fr; gap:.1rem; } }
+@media print { body { background:#fff; font-size:10.5pt; } main { width:100%; margin:0; padding:0; box-shadow:none; } a { color:#000; text-decoration:none; } h2 { break-after:avoid; } .info-grid,.materials-grid,.grade-grid { grid-template-columns:repeat(2,1fr); } }
+</style></head><body><main><header><h1>CS 453 Computer Networks</h1><p class="term">Fall 2026 · Tuesdays &amp; Thursdays · 11:30 AM–12:45 PM · Morrill Science Center I, Room N326</p></header><section class="syllabus-section" id="overview">
 <p class="section-kicker">Application Layer</p>
 <h2>Course overview</h2>
 <p>This course provides an introduction to fundamental concepts in the design and implementation of computer networks, their protocols, and applications. Topics to be covered include: overview of network architectures, applications, network programming interfaces (e.g., sockets), transport, congestion, the network data plane (packet forwarding, addressing) and control plane (routing algorithms, software-defined networks, network management), link-layer protocols, local area networks and data center networks, wireless networks, and a bit of network security. Examples will be drawn primarily from the Internet (e.g., TCP, UDP, and IP) protocol suite. There will be five or six written assignments, a couple of programming assignments, several short hands-on labs (that can be done on any Internet-connected PC). We'll have two exams and an optional final.</p>
@@ -144,8 +76,7 @@
 <p>The PowerPoint slides used for this class will be posted on Canvas. I will do my best to release the slides before each lecture.</p>
 </article>
 </div>
-</section>
-<section class="syllabus-section" data-layer="transport" id="communication">
+</section><section class="syllabus-section" id="communication">
 <p class="section-kicker">Transport Layer</p>
 <h2>Communication protocol</h2>
 <p>We are here to help! Please don’t hesitate to reach out. Here are our protocol guidelines for which channels to use and what to expect.</p>
@@ -156,76 +87,75 @@
 <div><span>Retransmission</span><strong>Follow up after 24 hours</strong></div>
 </div>
 <p>Use Piazza for questions that may help the class. Use email for urgent matters. Please do not hesitate to follow up if I have not replied within the expected time of one business day. Please include enough context for us to reconstruct the packet.</p>
-</section>
-<section class="syllabus-section" data-layer="network" id="schedule">
+</section><section class="syllabus-section" id="schedule">
 <p class="section-kicker">Network Layer</p>
 <h2>Route through the semester</h2>
 <p class="schedule-note">This schedule is tentative and may change as the semester unfolds. It is intended to give you the big picture of what we plan to cover and when.</p>
 <div aria-label="Fall 2026 course schedule" class="week-list">
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 1</span><small>Sep 8 &amp; 10 · Course foundations</small></summary>
 <div class="week-body">
 <p><time datetime="2026-09-08">Tue 9/8</time><strong>Lecture 1</strong> Course goals and overview. Course mechanics. What is the Internet? What is a protocol?</p>
 <p><time datetime="2026-09-10">Thu 9/10</time><strong>Lecture 2</strong> The network edge, the network core, and performance: delay, loss, and throughput.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 2</span><small>Sep 15 &amp; 17 · Layering and HTTP</small></summary>
 <div class="week-body">
 <p><time datetime="2026-09-15">Tue 9/15</time><strong>Lecture 3</strong> Performance continued; layering; encapsulation; networks under attack; history.</p>
 <p><time datetime="2026-09-17">Thu 9/17</time><strong>Lecture 4</strong> Principles of networked applications; the Web and HTTP.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 3</span><small>Sep 22 &amp; 24 · HTTP, DNS, and CDNs</small></summary>
 <div class="week-body">
 <p><time datetime="2026-09-22">Tue 9/22</time><strong>Lecture 5</strong> HTTP continued; e-mail; DNS.</p>
 <p><time datetime="2026-09-24">Thu 9/24</time><strong>Lecture 6</strong> DNS, video streaming, and content distribution networks.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 4</span><small>Sep 29 &amp; Oct 1 · Sockets and UDP</small></summary>
 <div class="week-body">
 <p><time datetime="2026-09-29">Tue 9/29</time><strong>Lecture 7</strong> Socket programming.</p>
 <p><time datetime="2026-10-01">Thu 10/1</time><strong>Lecture 8</strong> Introduction to the transport layer; multiplexing and demultiplexing; UDP.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 5</span><small>Oct 6 &amp; 8 · Reliable transport and TCP</small></summary>
 <div class="week-body">
 <p><time datetime="2026-10-06">Tue 10/6</time><strong>Lecture 9</strong> Principles of reliable data transfer.</p>
 <p><time datetime="2026-10-08">Thu 10/8</time><strong>Lecture 10</strong> Pipelined protocols; TCP connection management and reliable data transfer.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 6</span><small>Oct 13 &amp; 15 · Congestion and network layer</small></summary>
 <div class="week-body">
 <p><time datetime="2026-10-13">Tue 10/13</time><strong>Lecture 11</strong> Principles of congestion control; TCP congestion control.</p>
 <p><time datetime="2026-10-15">Thu 10/15</time><strong>Lecture 12</strong> Congestion-control futures; introduction to the network layer: forwarding, routing, data plane, and control plane.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 7</span><small>Oct 20 &amp; 22 · Routers and Exam I</small></summary>
 <div class="week-body">
 <p><time datetime="2026-10-20">Tue 10/20</time><strong>Lecture 13</strong> What is inside a router?</p>
 <p class="special exam"><time datetime="2026-10-22">Thu 10/22</time><strong>In-class Exam I</strong></p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 8</span><small>Oct 27 &amp; 29 · IP, SDN, and middleboxes</small></summary>
 <div class="week-body">
 <p><time datetime="2026-10-27">Tue 10/27</time><strong>Lecture 14</strong> The Internet Protocol: IPv4 and IPv6.</p>
 <p><time datetime="2026-10-29">Thu 10/29</time><strong>Lecture 15</strong> Generalized forwarding and SDN; middleboxes.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 9</span><small>Nov 3 &amp; 5 · Election Day and routing algorithms</small></summary>
 <div class="week-body">
 <p class="special no-class"><time datetime="2026-11-03">Tue 11/3</time><strong>Election Day · No class</strong></p>
 <p><time datetime="2026-11-05">Thu 11/5</time><strong>Lecture 16</strong> Link-state and distance-vector routing algorithms.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 10</span><small>Nov 10 &amp; 12 · Routing protocols and link layer</small></summary>
 <div class="week-body">
 <p><time datetime="2026-11-10">Tue 11/10</time><strong>Lecture 17</strong> Routing protocols: OSPF and BGP.</p>
@@ -233,43 +163,42 @@
 <p class="calendar-note"><time datetime="2026-11-11">Wed 11/11</time><strong>Veterans Day holiday</strong></p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 11</span><small>Nov 17 &amp; 19 · TBA and switched LANs</small></summary>
 <div class="week-body">
 <p class="special tba"><time datetime="2026-11-17">Tue 11/17</time><strong>Topic TBA</strong></p>
 <p><time datetime="2026-11-19">Thu 11/19</time><strong>Lecture 19</strong> Cable networks (DOCSIS); switched LANs.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 12</span><small>Nov 24 · Wednesday schedule and Thanksgiving break</small></summary>
 <div class="week-body">
 <p class="special no-class"><time datetime="2026-11-24">Tue 11/24</time><strong>Wednesday schedule · No CS453 class</strong></p>
 <p class="calendar-note"><strong>Thanksgiving break</strong></p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 13</span><small>Dec 1 &amp; 3 · Data centers and wireless</small></summary>
 <div class="week-body">
 <p><time datetime="2026-12-01">Tue 12/1</time><strong>Lecture 20</strong> Data-center networking; retrospective: a day in the life of a web-page request.</p>
 <p><time datetime="2026-12-03">Thu 12/3</time><strong>Lecture 21</strong> The wireless channel; Wi-Fi and Bluetooth.</p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 14</span><small>Dec 8 &amp; 10 · 4G/5G and Exam II</small></summary>
 <div class="week-body">
 <p><time datetime="2026-12-08">Tue 12/8</time><strong>Lecture 22</strong> 4G/5G networks.</p>
 <p class="special exam"><time datetime="2026-12-10">Thu 12/10</time><strong>In-class Exam II</strong></p>
 </div>
 </details>
-<details class="week-card">
+<details class="week-card" open="">
 <summary><span>Week 15</span><small>Dec 15 · It’s time to say goodbye!</small></summary>
 <div class="week-body">
 <p><time datetime="2026-12-15">Tue 12/15</time><strong>Lecture 23</strong> Course wrap-up.</p>
 </div>
 </details>
 </div>
-</section>
-<section class="syllabus-section" data-layer="link" id="grading">
+</section><section class="syllabus-section" id="grading">
 <p class="section-kicker">Link Layer</p>
 <h2>Grading frame</h2>
 <p>Each component contributes a field to the final frame. No single packet determines the whole transmission.</p>
@@ -283,39 +212,15 @@
 <article><span>20%</span><h3>Optional final exam*</h3><p>This comprehensive exam covers the entire course. You may keep your provisional grade or take the final; it can only improve your course grade.</p></article>
 </div>
 <p class="final-note"><strong>*How the optional final works:</strong> The optional final is comprehensive and covers the entire course. After the other coursework is complete, you will receive a provisional grade based on the components above excluding the final. You may accept that grade or take the final exam, which is weighted at 20% relative to the other components. Your final course grade will be the higher of the two calculations.</p>
-</section>
-<section class="syllabus-section" data-layer="physical" id="policies">
+</section><section class="syllabus-section" id="policies">
 <p class="section-kicker">Physical Layer</p>
 <h2>Our course policies</h2>
 <div class="policy-list">
 <details open=""><summary>Extension</summary><p>Every deadline comes with an automatic, no-penalty, one-day extension. After that, the credit you receive decreases by 10% for each additional day late. If you need more time for an assignment, please reach out to the instructor. We are very willing to accommodate exceptional circumstances, but we do need you to communicate with us.</p></details>
-<details><summary>Academic honesty policy</summary><p>Copying programs, written homework, or exam answers is not permitted. Working as a team on an individual written or programming assignment is also not permitted. You are welcome to discuss concepts and assignment questions with other students, but the work you submit must be substantially your own.</p><p>A student found violating this policy will receive, as an informal resolution, a grade of 0 on the assignment. A subsequent violation will result in a failing grade for the course. If you are struggling with an assignment or a deadline, please contact the instructor or a TA. We will bend over backwards to help, but we will not tolerate cheating. Please read the <a href="https://www.umass.edu/policy/academic-honesty" rel="noopener noreferrer" target="_blank">UMass Academic Honesty Policy</a>.</p></details>
-<details><summary>AI policy</summary><p>We are okay with you using AI tools to help clarify concepts, explore examples, and debug code you have written. However, please do not use AI to generate assignment solutions or write the code for you. The purpose of these assignments is to help you understand the course content and develop your own problem-solving and programming skills. Outsourcing that work may save time today, but it can quietly create gaps that make later assignments, exams, interviews, and future courses much harder. If you feel that you need to use AI because you are running out of time, please reach out to us instead. We really want you to learn, and we will do our best to help you find a workable path forward. When in doubt, ask us whether a particular use is appropriate.</p></details>
-<details><summary>Accessibility</summary><p>Please contact Disability Services and the instructor early so that accommodations can be arranged smoothly.</p></details>
-<details><summary>Well-being</summary><p>Your well-being matters more than any single assignment. Sometimes life takes an unexpected turn, and none of us needs extra stress piled on top of that. If something is affecting your ability to participate or meet a deadline, please do not hesitate to reach out. You do not need to share more than you are comfortable sharing, but please communicate with us so we can help identify a reasonable path forward. We care about both your learning and your well-being, and we want you to be successful in this course.</p></details>
-<details><summary>Changes to the syllabus</summary><p>The schedule may evolve. Important changes will be announced in class and posted on Canvas.</p></details>
+<details open=""><summary>Academic honesty policy</summary><p>Copying programs, written homework, or exam answers is not permitted. Working as a team on an individual written or programming assignment is also not permitted. You are welcome to discuss concepts and assignment questions with other students, but the work you submit must be substantially your own.</p><p>A student found violating this policy will receive, as an informal resolution, a grade of 0 on the assignment. A subsequent violation will result in a failing grade for the course. If you are struggling with an assignment or a deadline, please contact the instructor or a TA. We will bend over backwards to help, but we will not tolerate cheating. Please read the <a href="https://www.umass.edu/policy/academic-honesty" rel="noopener noreferrer" target="_blank">UMass Academic Honesty Policy</a>.</p></details>
+<details open=""><summary>AI policy</summary><p>We are okay with you using AI tools to help clarify concepts, explore examples, and debug code you have written. However, please do not use AI to generate assignment solutions or write the code for you. The purpose of these assignments is to help you understand the course content and develop your own problem-solving and programming skills. Outsourcing that work may save time today, but it can quietly create gaps that make later assignments, exams, interviews, and future courses much harder. If you feel that you need to use AI because you are running out of time, please reach out to us instead. We really want you to learn, and we will do our best to help you find a workable path forward. When in doubt, ask us whether a particular use is appropriate.</p></details>
+<details open=""><summary>Accessibility</summary><p>Please contact Disability Services and the instructor early so that accommodations can be arranged smoothly.</p></details>
+<details open=""><summary>Well-being</summary><p>Your well-being matters more than any single assignment. Sometimes life takes an unexpected turn, and none of us needs extra stress piled on top of that. If something is affecting your ability to participate or meet a deadline, please do not hesitate to reach out. You do not need to share more than you are comfortable sharing, but please communicate with us so we can help identify a reasonable path forward. We care about both your learning and your well-being, and we want you to be successful in this course.</p></details>
+<details open=""><summary>Changes to the syllabus</summary><p>The schedule may evolve. Important changes will be announced in class and posted on Canvas.</p></details>
 </div>
-</section>
-<section class="arrival" data-layer="arrival">
-<div aria-hidden="true" class="celebration" id="celebration"></div>
-<p class="section-kicker">Destination reached</p>
-<div aria-hidden="true" class="arrival-badge">✓</div>
-<h2>200 OK: Tiny piece received</h2>
-<div aria-label="Reassembling the complete CS 453 syllabus" class="assembly-status">
-<span>Receiving the remaining packets…</span>
-<div aria-hidden="true" class="assembly-track"><i></i></div>
-<strong>CS 453 syllabus assembled!</strong>
-</div>
-<p>You have reached the end of the transmission. The tiny piece has joined the rest of the packets to reconstruct the complete syllabus. Bookmark this page, and use the navigation above to jump directly to any section later.</p>
-<p class="arrival-cheer">Connection established. Let’s have a great semester!</p>
-<a class="button secondary" href="#top">Return to source ↑</a>
-</section>
-</div>
-</main>
-<footer>
-<p>Computer Networks · Fall 2026 · Last updated July 2026</p>
-
-<div class="footer-actions"><a class="footer-button" download="CS453-Fall-2026-Syllabus.html" href="cs453-syllabus-plain.html">Download plain syllabus</a><button id="printButton" type="button">Print / Save as PDF</button></div></footer>
-<script src="script.js"></script>
-</body>
-</html>
+</section><footer>Computer Networks · Fall 2026 · Last updated July 2026</footer></main></body></html>

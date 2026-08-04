@@ -10,12 +10,12 @@ const physicalSection = document.querySelector('[data-layer="physical"]');
 const arrivalSection = document.querySelector('[data-layer="arrival"]');
 
 const layerContent = {
-  application: ['Application Layer Data', 'Your syllabus begins as application data.'],
+  application: ['Application Layer Data', 'A tiny piece of the CS 453 syllabus begins as application data.'],
   transport: ['TCP Segment', 'A transport header adds reliability and ordering.'],
   network: ['IP Packet', 'A network header gives the data an address and route.'],
   link: ['Ethernet Frame', 'A link-layer header and trailer prepare local delivery.'],
   physical: ['Frame in Transit', 'Scroll down to move the frame toward its destination. Scroll up to send it back.'],
-  arrival: ['Packet Received', 'The destination computer receives the frame and opens it for decapsulation.']
+  arrival: ['Tiny Piece Received', 'The destination receives this piece and rejoins it with the remaining syllabus data.']
 };
 
 let currentLayer = '';
@@ -140,4 +140,113 @@ initializeCurrentWeek();
 updateActiveLayer();
 updateTransmissionProgress();
 
-document.getElementById('printButton').addEventListener('click', () => window.print());
+// Expand all collapsible content for printing, then restore the reader's state.
+const printButton = document.getElementById('printButton');
+let printOpenState = null;
+
+function expandDetailsForPrint() {
+  if (printOpenState) return;
+  const allDetails = [...document.querySelectorAll('details')];
+  printOpenState = allDetails.map(detail => detail.open);
+  allDetails.forEach(detail => { detail.open = true; });
+}
+
+function restoreDetailsAfterPrint() {
+  if (!printOpenState) return;
+  const allDetails = [...document.querySelectorAll('details')];
+  allDetails.forEach((detail, index) => {
+    detail.open = Boolean(printOpenState[index]);
+  });
+  printOpenState = null;
+}
+
+window.addEventListener('beforeprint', expandDetailsForPrint);
+window.addEventListener('afterprint', restoreDetailsAfterPrint);
+
+if (printButton) {
+  printButton.addEventListener('click', () => {
+    expandDetailsForPrint();
+    // Allow the browser one frame to lay out the newly opened sections.
+    requestAnimationFrame(() => window.print());
+  });
+}
+
+// Replay the restrained celebration whenever the destination re-enters view.
+const arrival = document.querySelector('.arrival');
+const celebration = document.getElementById('celebration');
+let celebrationReady = true;
+
+if (arrival && celebration) {
+  const colors = ['#f07049', '#0a7b83', '#f9c74f', '#90be6d', '#4d9de0'];
+  for (let i = 0; i < 28; i += 1) {
+    const piece = document.createElement('i');
+    piece.className = 'confetti-piece';
+    const angle = (Math.PI * 2 * i) / 28 + (Math.random() - .5) * .3;
+    const distance = 115 + Math.random() * 190;
+    piece.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+    piece.style.setProperty('--dy', `${Math.sin(angle) * distance + 70}px`);
+    piece.style.setProperty('--rot', `${Math.round((Math.random() - .5) * 900)}deg`);
+    piece.style.setProperty('--delay', `${Math.random() * .16}s`);
+    piece.style.setProperty('--confetti-color', colors[i % colors.length]);
+    celebration.appendChild(piece);
+  }
+
+  const replayCelebration = () => {
+    // Restart the animation when the destination is revisited, but keep the
+    // completed state afterward so the full bar and assembled message remain.
+    arrival.classList.remove('celebrate');
+    void arrival.offsetWidth;
+    arrival.classList.add('celebrate');
+  };
+
+  const arrivalObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && entry.intersectionRatio > .42 && celebrationReady) {
+        celebrationReady = false;
+        replayCelebration();
+      } else if (!entry.isIntersecting || entry.intersectionRatio < .12) {
+        celebrationReady = true;
+      }
+    });
+  }, { threshold: [0, .12, .42, .7] });
+
+  arrivalObserver.observe(arrival);
+}
+
+// Scroll-reactive hero: title recedes while the syllabus payload assembles.
+const hero = document.querySelector('.hero');
+function updateHeroProgress() {
+  if (!hero) return;
+  const heroHeight = Math.max(hero.offsetHeight - window.innerHeight * 0.18, 1);
+  const progress = clamp(window.scrollY / heroHeight, 0, 1);
+  hero.style.setProperty('--hero-progress', progress.toFixed(4));
+}
+window.addEventListener('scroll', updateHeroProgress, { passive: true });
+window.addEventListener('resize', updateHeroProgress);
+updateHeroProgress();
+
+// Play a small randomized reaction without restarting the one-time entrance.
+const heroSpider = document.querySelector('.hero-spider');
+let spiderReactionTimer;
+
+if (heroSpider) {
+  heroSpider.addEventListener('click', () => {
+    window.clearTimeout(spiderReactionTimer);
+
+    const angle = 5 + Math.random() * 7;
+    const bounce = Math.random() < 0.45 ? 2 + Math.random() * 5 : 0;
+    const duration = 620 + Math.random() * 420;
+
+    heroSpider.style.setProperty('--spider-angle', `${angle.toFixed(2)}deg`);
+    heroSpider.style.setProperty('--spider-bounce', `${bounce.toFixed(2)}px`);
+    heroSpider.style.setProperty('--spider-reaction-duration', `${Math.round(duration)}ms`);
+
+    heroSpider.classList.remove('is-reacting');
+    void heroSpider.offsetWidth;
+    heroSpider.classList.add('is-reacting');
+
+    spiderReactionTimer = window.setTimeout(() => {
+      heroSpider.classList.remove('is-reacting');
+    }, duration + 80);
+  });
+}
