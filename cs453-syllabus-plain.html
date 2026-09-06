@@ -30,6 +30,11 @@ a { color:var(--accent); text-underline-offset:2px; }
 footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font: .9rem Arial,sans-serif; }
 @media (max-width:700px) { .info-grid,.materials-grid,.grade-grid { grid-template-columns:1fr; } .week-body p { grid-template-columns:1fr; gap:.1rem; } }
 @media print { body { background:#fff; font-size:10.5pt; } main { width:100%; margin:0; padding:0; box-shadow:none; } a { color:#000; text-decoration:none; } h2 { break-after:avoid; } .info-grid,.materials-grid,.grade-grid { grid-template-columns:repeat(2,1fr); } }
+.assistants-card { grid-column:1 / -1; }
+.assistants-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+.assistants-grid p { margin:0; overflow-wrap:anywhere; }
+.assistant-role { color:var(--muted); font-size:.9em; }
+@media screen and (max-width:520px) { .assistants-grid { grid-template-columns:1fr; } }
 </style></head><body><main><header><h1>CS 453 Computer Networks</h1><p class="term">Fall 2026 · Tuesdays &amp; Thursdays · 11:30 AM–12:45 PM · Morrill Science Center I, Room N326</p></header><section class="syllabus-section" id="overview">
 <p class="section-kicker">Application Layer</p>
 <h2>Course overview</h2>
@@ -43,15 +48,14 @@ footer { margin-top:3rem; padding-top:1rem; border-top:1px solid var(--line); co
 <h3>Class meetings</h3>
 <p>Tuesdays &amp; Thursdays<br/>11:30 AM–12:45 PM<br/>Morrill Science Center I, Room N326</p>
 </article>
-<article>
-<h3>Teaching Assistants</h3>
-<p><strong>Arya Krishnan</strong><br/><a href="mailto:aryakrishnan@umass.edu">aryakrishnan@umass.edu</a></p>
-<p><strong>Sribatscha Maharana</strong> <span class="pronouns">(he/him)</span><br/><a href="mailto:sribatschama@umass.edu">sribatschama@umass.edu</a></p>
-<p><strong>Elvis Yeboah-Duako</strong> <span class="pronouns">(he/him)</span><br/><a href="mailto:eyeboahduako@umass.edu">eyeboahduako@umass.edu</a></p>
-</article>
-<article>
-<h3>Undergraduate Course Assistants</h3>
-<p><strong>Meiling Chen</strong><br/><a href="mailto:meilingchen@umass.edu">meilingchen@umass.edu</a></p>
+<article class="assistants-card">
+<h3>TAs / UCAs</h3>
+<div class="assistants-grid">
+<div><p><strong>Arya Krishnan</strong><br/><span class="assistant-role">Teaching Assistant</span><br/><a href="mailto:aryakrishnan@umass.edu">aryakrishnan@umass.edu</a></p></div>
+<div><p><strong>Sribatscha Maharana</strong> <span class="pronouns">(he/him)</span><br/><span class="assistant-role">Teaching Assistant</span><br/><a href="mailto:sribatschama@umass.edu">sribatschama@umass.edu</a></p></div>
+<div><p><strong>Elvis Yeboah-Duako</strong> <span class="pronouns">(he/him)</span><br/><span class="assistant-role">Teaching Assistant</span><br/><a href="mailto:eyeboahduako@umass.edu">eyeboahduako@umass.edu</a></p></div>
+<div><p><strong>Meiling Chen</strong><br/><span class="assistant-role">Undergraduate Course Assistant</span><br/><a href="mailto:meilingchen@umass.edu">meilingchen@umass.edu</a></p></div>
+</div>
 </article>
 </div>
 <h3>Prerequisites</h3>

@@ -1448,3 +1448,16 @@ footer button:focus-visible { transform: translateY(-1px); }
     transition-delay: 0s;
   }
 }
+
+/* Shared course assistant card. */
+.assistants-card { grid-column: 1 / -1; }
+.assistants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.5rem;
+}
+.assistants-grid p { margin: 0; overflow-wrap: anywhere; }
+.assistant-role { color: var(--muted); font-size: .9em; }
+@media screen and (max-width: 520px) {
+  .assistants-grid { grid-template-columns: 1fr; }
+}
